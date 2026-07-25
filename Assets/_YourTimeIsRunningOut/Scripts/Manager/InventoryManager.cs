@@ -6,7 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private int maxSlotValue = 10;
 
-    [SerializeField] private List<ItemSO> allItem;
+    [SerializeField] private List<ItemSO> allInventoryItem;
 
     private ItemSO currentItemSelect;
 
@@ -21,16 +21,16 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(ItemSO itemData)
     {
-        allItem.Add(itemData);
+        allInventoryItem.Add(itemData);
     }
 
     public void RemoveItem(ItemSO itemData)
     {
-        for (int i = 0; i < allItem.Count; i++)
+        for (int i = 0; i < allInventoryItem.Count; i++)
         {
-            if (allItem[i] == itemData)
+            if (allInventoryItem[i] == itemData)
             {
-                allItem.Remove(itemData);
+                allInventoryItem.Remove(itemData);
                 return;
             }
         }
@@ -39,10 +39,10 @@ public class InventoryManager : MonoBehaviour
 
     public List<ItemSO> GetAllItem()
     {
-        return allItem;
+        return allInventoryItem;
     }
 
-    public bool HaveItem() => allItem.Count > 0;
+    public bool HaveItem() => allInventoryItem.Count > 0;
 
     public ItemSO GetItemSelect()
     {
